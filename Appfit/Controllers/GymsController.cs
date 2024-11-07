@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Appfit.Controllers
 {
-    public class AppfitGym : Controller
+    public class GymsController : Controller
     {
         private readonly AppfitDbContext _context;
 
-        public AppfitGym(AppfitDbContext context)
+        public GymsController(AppfitDbContext context)
         {
             _context = context;
         }

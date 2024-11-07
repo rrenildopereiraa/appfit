@@ -2,7 +2,7 @@
 
 namespace Appfit.Models
 {
-    public class AppfitGym
+    public class GymViewModel
     {
         public int Id { get; set; }
 
@@ -15,5 +15,8 @@ namespace Appfit.Models
         [MaxLength(20)]
         public string Phone { get; set; } = string.Empty;
         public string OpeningHours { get; set; } = string.Empty;
+
+        [MaxLength(100)]
+        public string ImageFileName { get; set; } = string.Empty;
     }
 }

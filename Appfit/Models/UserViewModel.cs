@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Appfit.Models
 {
-    public class AppfitUser : IdentityUser
+    public class UserViewModel : IdentityUser
     {
 
         [MaxLength(50)]
