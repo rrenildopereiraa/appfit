@@ -1,13 +1,12 @@
 using Appfit.Services;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppfitContext>(options =>
+builder.Services.AddDbContext<AppfitDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("AppfitConnection");
     options.UseSqlServer(connectionString);
