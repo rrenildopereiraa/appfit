@@ -1,5 +1,6 @@
 ﻿using Appfit.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace Appfit.Services
 {
@@ -11,5 +12,7 @@ namespace Appfit.Services
         }
 
         public DbSet<AppfitUser> Clients { get; set; }
+        public DbSet<AppfitGym> Gymnasiums { get; set; }
+        public DbSet<AppfitSubscription> Subscriptions { get; set; }
     }
 }
