@@ -10,7 +10,7 @@
     @if (Model.Any())
     {
         <div class="col">
-            <a class="btn btn-dark" asp-controller="AppfitGym" asp-action="Create">New gym</a>
+            <a class="btn btn-dark" asp-controller="Gyms" asp-action="Create">New gym</a>
         </div>
     }
 
@@ -51,9 +51,9 @@
         }
         else
         {
-            <div>
+            <div style="height: 100dvh">
                 <h2 class="fs-1">404</h2>
-                <p class="fs-5 text-secondary">There aren't any gyms in the area, so you'll need to <span><a class="text-dark" asp-controller="AppfitGym" asp-action="Create">create a new one</a></span>.</p>
+                <p class="fs-5 text-secondary">There aren't any gyms in the area, so you'll need to <span><a class="text-dark" asp-controller="Gyms" asp-action="Create">create a new one</a></span>.</p>
             </div>
         }
     </div>
