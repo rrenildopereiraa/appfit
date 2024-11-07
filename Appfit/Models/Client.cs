@@ -2,7 +2,7 @@
 
 namespace Appfit.Models
 {
-    public class Clients
+    public class Client
     {
         public int Id { get; set; }
 

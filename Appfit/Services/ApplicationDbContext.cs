@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Appfit.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Appfit.Services
 {
@@ -8,5 +9,7 @@ namespace Appfit.Services
         {
             
         }
+
+        public DbSet<Client> Clients { get; set; }
     }
 }
