@@ -7,64 +7,73 @@
 <div class="album py-5">
 
     <div class="p-5 text-center rounded-3">
-        <h1 class="display-4 fw-normal text-dark">Our Gyms</h1>
-        <p class="col-lg-8 mx-auto fs-5 text-muted">
-            Choose from one of our available gyms and start your training classes right now with one of our subscription plans today!
-        </p>
-        <div class="d-inline-flex gap-4 mb-5">
+        @if (Model.Any())
+        {
+            <h1 class="display-4 fw-normal text-dark">Our Gyms</h1>
+            <p class="col-lg-8 mx-auto fs-5 text-muted">
+                Choose from one of our available gyms and start your training classes right now with one of our subscription plans today!
+            </p>
+        }
+        else
+        {
+            <h1 class="display-4 fw-normal text-dark">404</h1>
             @if (User.IsInRole("Admin"))
             {
+                <p class="col-lg-8 mx-auto fs-5 text-muted">
+                    There aren't any gyms in the area, so you'll need to <span><a class="text-dark" asp-controller="Gyms" asp-action="Create">create a new one</a></span>.
+                </p>
+            }
+            else
+            {
+                <p class="col-lg-8 mx-auto fs-5 text-muted">
+                    There aren't any gyms available right now. If you notice this, please let an administrator know. Thanks!
+                </p>
+            }
+        }
+        <div class="d-inline-flex gap-4 mb-5">
+            @if (!User.IsInRole("Admin"))
+            {
                 <a class="d-inline-flex align-items-center btn btn-dark btn-lg px-4 rounded-pill" asp-controller="Gyms" asp-action="Create">
-                    Add Gym Location
-                    <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                    Add new gym
+                    <svg class="ms-2 size-16" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                     </svg>
                 </a>
             }
             else
             {
                 <a class="d-inline-flex align-items-center btn btn-dark btn-lg px-4 rounded-pill" asp-controller="Home" asp-action="Index">
-                See plans
-                <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
-                </svg>
-            </a>
+                    See plans
+                    <svg class="ms-2 size-24" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                    </svg>
+                </a>
             }
         </div>
     </div>
 
     <div class="container">
-        @if (Model.Any())
-        {
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @foreach (var gym in Model)
-                {
-                    <div class="col">
-                        <div class="card rounded-lg shadow-sm">
-                            <img class="rounded-top-lg" width="100%" height="225" src="~/public/@gym.ImageFileName" alt="Location Image">
-                            <div class="card-body">
-                                <p class="fs-5 card-text mb-2">@gym.LocationName</p>
-                                <p class="card-text">@gym.Address</p>
-                                <p class="card-text">@gym.OpeningHours</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                        <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
-                                    </div>
-                                    <small class="text-secondary">@gym.Phone</small>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @foreach (var gym in Model)
+            {
+                <div class="col">
+                    <div class="card rounded-lg shadow-sm">
+                        <img class="rounded-top-lg w-full h-255" src="~/public/assets/gyms/@gym.ImageFileName" alt="Location Image">
+                        <div class="card-body">
+                            <p class="fs-5 card-text mb-2">@gym.LocationName</p>
+                            <p class="card-text">@gym.Address</p>
+                            <p class="card-text">@gym.OpeningHours</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
                                 </div>
+                                <small class="text-secondary">@gym.Phone</small>
                             </div>
                         </div>
                     </div>
-                }
-            </div>
-        }
-        else
-        {
-            <div class="h-screen">
-                <h2 class="fs-1">404</h2>
-                <p class="fs-5 text-secondary">There aren't any gyms in the area, so you'll need to <span><a class="text-dark" asp-controller="Gyms" asp-action="Create">create a new one</a></span>.</p>
-            </div>
-        }
+                </div>
+            }
+        </div>
     </div>
 </div>
