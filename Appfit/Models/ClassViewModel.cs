@@ -7,12 +7,12 @@ namespace Appfit.Models
         public int Id { get; set; }
 
         [MaxLength(100)]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; } = "";
 
-        public string Description { get; set; } = string.Empty;
+        public string Description { get; set; } = "";
 
         [MaxLength(50)]
-        public string Category { get; set; } = string.Empty;
+        public string Category { get; set; } = "";
 
         public int GymId { get; set; }
 

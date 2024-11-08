@@ -34,6 +34,7 @@ namespace Appfit.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("WorkoutClassId")
@@ -122,7 +123,8 @@ namespace Appfit.Migrations
 
                     b.Property<string>("OpeningHours")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -250,7 +252,9 @@ namespace Appfit.Migrations
                 {
                     b.HasOne("Appfit.Models.UserViewModel", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Appfit.Models.ClassViewModel", "WorkoutClass")
                         .WithMany()

@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\public\assets\gyms\" />
-    <Folder Include="wwwroot\public\assets\users\" />
+    <Folder Include="wwwroot\locations\" />
+    <Folder Include="wwwroot\users\" />
   </ItemGroup>
 
 </Project>

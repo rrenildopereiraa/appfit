@@ -1,30 +1,50 @@
 ﻿@model GymDto
 
 @{
-    ViewData["Title"] = "Add Gyms";
+    ViewData["Title"] = "Edit Gyms";
 }
 
 <div class="container px-20">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4 size-72" src="~/icon.png" alt="Appfit Logo" />
-        <h2>Add a new gym location</h2>
-        <p class="text-secondary">Add existing gym data like location name, address, phone number and opening hours.</p>
+        <h2>Update a new gym location</h2>
+        <p class="text-secondary">Update existing gym data like location name, address, phone number and opening hours.</p>
     </div>
 
     <div class="h-screen">
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
+
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-dark">Related info</span>
+                </h4>
+
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Gym ID</h6>
+                            <small class="text-body-secondary">This is the unique identifier for the gym.</small>
+                        </div>
+                        <span class="text-body-secondary">@ViewData["Id"]</span>
+                    </li>
+                </ul>
+
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-dark">Related actions</span>
                 </h4>
+
                 <div>
                     <a class="btn btn-outline-danger" asp-controller="Gyms" asp-action="Index">Cancel operation</a>
                 </div>
             </div>
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Gym information</h4>
-                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
                     <div class="row g-3">
+                        <div class="d-none">
+                            <input type="hidden" class="form-control-plaintext" readonly value="@ViewData["Id"]">
+                        </div>
+
                         <div class="col-sm-6">
                             <label class="form-label">Location name</label>
                             <input type="text" class="form-control" asp-for="LocationName" placeholder="Detroit City">
@@ -45,6 +65,7 @@
 
                         <div class="col-12">
                             <label class="form-label">Image File</label>
+                            <img class="d-block w-150 mb-4" src="~/locations/@ViewData["ImageFile"]" />
                             <input type="file" class="form-control" asp-for="ImageFile">
                             <span class="text-danger" asp-validation-for="ImageFile"></span>
                         </div>
@@ -60,7 +81,7 @@
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-dark btn-lg" type="submit">Add new gym</button>
+                        <button class="w-100 btn btn-dark btn-lg" type="submit">Update gym</button>
                     </div>
                 </form>
             </div>

@@ -48,8 +48,12 @@ body {
     height: 255px;
 }
 
+.w-150 {
+    width: 150px;
+}
+
 .w-full {
-    width: 100%
+    width: 100%;
 }
 
 .px-20 {
