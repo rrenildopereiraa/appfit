@@ -65,8 +65,8 @@
                             <p class="card-text">@gym.OpeningHours</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                                    <a class="btn btn-sm btn-outline-secondary" asp-controller="Gyms" asp-action="Edit" asp-route-id="@gym.Id">Edit</a>
+                                    <a class="btn btn-sm btn-outline-danger" asp-controller="Gyms" asp-action="Delete" asp-route-id="@gym.Id">Delete</a>
                                 </div>
                                 <small class="text-secondary">@gym.Phone</small>
                             </div>
