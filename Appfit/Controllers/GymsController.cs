@@ -137,5 +137,24 @@ namespace Appfit.Controllers
 
             return RedirectToAction("Index", "Gyms");
         }
+
+        // GET: Gym/Delete/{Id}
+        public IActionResult Delete(int id)
+        {
+            var gym = _context.Gyms.Find(id);
+
+            if (gym == null)
+            {
+                return RedirectToAction("Index", "Gyms");
+            }
+
+            string imageFullPath = _env.WebRootPath + "/locations/" + gym.ImageFileName;
+            System.IO.File.Delete(imageFullPath);
+
+            _context.Gyms.Remove(gym);
+            _context.SaveChanges(true);
+
+            return RedirectToAction("Index", "Gyms");
+        }
     }
 }
