@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\public\assets\gyms\" />
     <Folder Include="wwwroot\public\assets\users\" />
   </ItemGroup>
 
