@@ -2,7 +2,6 @@
 
 namespace Appfit.Models
 {
-    //Gym - Data Transfer Orientation
     public class GymDto
     {
         [Required, MaxLength(100)]

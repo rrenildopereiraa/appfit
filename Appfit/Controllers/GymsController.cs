@@ -1,4 +1,5 @@
-﻿using Appfit.Services;
+﻿using Appfit.Models;
+using Appfit.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Appfit.Controllers
@@ -20,6 +21,21 @@ namespace Appfit.Controllers
 
         public IActionResult Create() { 
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(GymDto gymDto)
+        {
+            if (gymDto.ImageFile == null) {
+                ModelState.AddModelError("ImageFile", "The image file is required");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(gymDto);
+            }
+
+            return RedirectToAction("Index", "Gyms");
         }
     }
 }

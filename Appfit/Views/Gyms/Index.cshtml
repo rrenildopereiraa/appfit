@@ -4,7 +4,7 @@
     ViewData["Title"] = "Our Gyms";
 }
 
-<div class="album py-5 bg-body-tertiary">
+<div class="album py-5">
 
     <div class="p-5 text-center rounded-3">
         <h1 class="display-4 fw-normal text-body-emphasis">Our Gyms</h1>
@@ -61,7 +61,7 @@
         }
         else
         {
-            <div style="height: 100dvh">
+            <div class="h-screen">
                 <h2 class="fs-1">404</h2>
                 <p class="fs-5 text-secondary">There aren't any gyms in the area, so you'll need to <span><a class="text-dark" asp-controller="Gyms" asp-action="Create">create a new one</a></span>.</p>
             </div>

@@ -23,7 +23,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #f8f9fa;
 }
 
 /* Custom class names */
@@ -38,4 +39,9 @@ body {
 
 .h-screen {
     height: 100dvh;
+}
+
+.px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
