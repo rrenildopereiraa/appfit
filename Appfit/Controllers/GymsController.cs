@@ -17,5 +17,9 @@ namespace Appfit.Controllers
             var gyms = _context.Gyms.OrderByDescending(g => g.Id).ToList();
             return View(gyms);
         }
+
+        public IActionResult Create() { 
+            return View();
+        }
     }
 }

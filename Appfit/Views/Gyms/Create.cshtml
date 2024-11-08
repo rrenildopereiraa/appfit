@@ -1,0 +1,69 @@
+﻿@model GymDto
+
+@{
+    ViewData["Title"] = "Add Gyms";
+}
+
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" width="72" height="72" src="~/icon.png" alt="Appfit Logo" />
+        <h2>Add a new gym location</h2>
+        <p class="text-secondary">Add existing gym data like location name, address, phone number and opening hours.</p>
+    </div>
+
+    <div class="h-screen">
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-dark">Related actions</span>
+                </h4>
+
+                <div>
+                    <a type="submit" class="btn btn-outline-danger" asp-controller="Gyms" asp-action="Create">Cancel operation</a>
+                </div>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">Gym information</h4>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label class="form-label">Location name</label>
+                            <input type="text" class="form-control" asp-for="LocationName" placeholder="Earth">
+                            <div class="text-danger" asp-validation-for="locationName"></div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" asp-for="Address" placeholder="1234 Main St">
+                            <div class="text-danger" asp-validation-for="Address"></div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Phone <span class="text-body-secondary">(Optional)</span></label>
+                            <input type="tel" class="form-control" asp-for="Phone" placeholder="961234567">
+                            <div class="text-danger" asp-validation-for="Phone"></div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Image File</label>
+                            <input type="file" class="form-control" asp-for="ImageFile" placeholder="Image file">
+                        </div>
+
+                        <div>
+                            <label class="form-label">Opening Hours</label>
+                            <select class="form-select" asp-for="OpeningHours">
+                                <option>We're open from 8AM to 6PM</option>
+                                <option>We're open from 10AM to 8PM</option>
+                            </select>
+                            <div class="text-danger" asp-validation-for="OpeningHours"></div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <button class="w-100 btn btn-dark btn-lg" type="submit">Apply changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

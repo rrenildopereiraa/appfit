@@ -35,3 +35,7 @@ body {
     border-top-left-radius: var(--appfit-base-rounded);
     border-top-right-radius: var(--appfit-base-rounded);
 }
+
+.h-screen {
+    height: 100dvh;
+}

@@ -16,10 +16,10 @@ namespace Appfit.Models
 
         public int GymId { get; set; }
 
-        public GymViewModel? Gym { get; set; }
+        public GymViewModel Gym { get; set; }
 
         public string? CoachId { get; set; }
-        public UserViewModel? Coach { get; set; }
+        public UserViewModel Coach { get; set; }
 
         public int MaxAttendees { get; set; } = 20;
 
