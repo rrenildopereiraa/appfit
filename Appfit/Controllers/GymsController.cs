@@ -15,16 +15,19 @@ namespace Appfit.Controllers
             _env = env;
         }
 
+        // GET: Gyms
         public IActionResult Index()
         {
             var gyms = _context.Gyms.OrderByDescending(g => g.Id).ToList();
             return View(gyms);
         }
 
+        // GET: Gyms/Create
         public IActionResult Create() { 
             return View();
         }
 
+        // POST: Gyms/Create
         [HttpPost]
         public IActionResult Create(GymDto gymDto)
         {
