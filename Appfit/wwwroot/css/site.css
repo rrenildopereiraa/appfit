@@ -1,5 +1,6 @@
 :root {
     --bs-primary: #595cd9;
+    --appfit-base-rounded: 0.65rem;
 }
 
 html {
@@ -23,4 +24,14 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+/* Custom class names */
+.rounded-lg {
+    border-radius: var(--appfit-base-rounded);
+}
+
+.rounded-top-lg {
+    border-top-left-radius: var(--appfit-base-rounded);
+    border-top-right-radius: var(--appfit-base-rounded);
 }

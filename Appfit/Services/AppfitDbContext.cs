@@ -9,7 +9,7 @@ namespace Appfit.Services
 
         public DbSet<BookingViewModel> Bookings { get; set; }
         public DbSet<ClassViewModel> Classes { get; set; }
-        public DbSet<GymViewModel> Gymnasiums { get; set; }
+        public DbSet<GymViewModel> Gyms { get; set; }
         public DbSet<SubscriptionViewModel> Subscriptions { get; set; }
         public DbSet<UserViewModel> Users { get; set; }
     }

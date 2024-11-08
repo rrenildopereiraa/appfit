@@ -131,7 +131,7 @@ namespace Appfit.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Gymnasiums");
+                    b.ToTable("Gyms");
                 });
 
             modelBuilder.Entity("Appfit.Models.SubscriptionViewModel", b =>

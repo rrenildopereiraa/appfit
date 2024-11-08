@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Appfit.Migrations
 {
     [DbContext(typeof(AppfitDbContext))]
-    [Migration("20241107190944_FirstMigration")]
+    [Migration("20241107215109_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -134,7 +134,7 @@ namespace Appfit.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Gymnasiums");
+                    b.ToTable("Gyms");
                 });
 
             modelBuilder.Entity("Appfit.Models.SubscriptionViewModel", b =>

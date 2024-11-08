@@ -12,7 +12,7 @@ namespace Appfit.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Gymnasiums",
+                name: "Gyms",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -25,7 +25,7 @@ namespace Appfit.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Gymnasiums", x => x.Id);
+                    table.PrimaryKey("PK_Gyms", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -78,9 +78,9 @@ namespace Appfit.Migrations
                 {
                     table.PrimaryKey("PK_Classes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Classes_Gymnasiums_GymId",
+                        name: "FK_Classes_Gyms_GymId",
                         column: x => x.GymId,
-                        principalTable: "Gymnasiums",
+                        principalTable: "Gyms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -106,9 +106,9 @@ namespace Appfit.Migrations
                 {
                     table.PrimaryKey("PK_Subscriptions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Subscriptions_Gymnasiums_GymId",
+                        name: "FK_Subscriptions_Gyms_GymId",
                         column: x => x.GymId,
-                        principalTable: "Gymnasiums",
+                        principalTable: "Gyms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -189,7 +189,7 @@ namespace Appfit.Migrations
                 name: "Classes");
 
             migrationBuilder.DropTable(
-                name: "Gymnasiums");
+                name: "Gyms");
 
             migrationBuilder.DropTable(
                 name: "Users");
